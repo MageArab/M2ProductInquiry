@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageArab_ProductInquiry::inquiry"
+             title="MageArab Product Inquiry"
+             module="MageArab_ProductInquiry"
+             sortOrder="21"
+             resource="MageArab_ProductInquiry::inquiry"/>
+
+        <add id="MageArab_ProductInquiry::inquiry_manage"
+             title="Inquiries" module="MageArab_ProductInquiry"
+             sortOrder="10"
+             parent="MageArab_ProductInquiry::inquiry"
+             action="inquiry/index/"
+             resource="MageArab_ProductInquiry::manage"/>
+
+        <add id="MageArab_ProductInquiry::inquiry_setting"
+             title="Settings" module="MageArab_ProductInquiry"
+             sortOrder="11" parent="MageArab_ProductInquiry::inquiry"
+             action="adminhtml/system_config/edit/section/inquiry"
+             resource="MageArab_ProductInquiry::manage"/>
+    </menu>
+</config>

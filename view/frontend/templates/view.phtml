@@ -1,0 +1,60 @@
+<?php if($block->isEnable()): ?>
+<?php
+$toEmail = $block->getConfig("enquiry/general/email_address");
+?>
+<div class="missing-product">
+    <form class="form enquiry" action="<?php echo $block->escapeHtml($block->getFormAction()); ?>"
+          id="enquiry-form" method="post"
+          data-hasrequired="<?php echo __('* Required Fields') ?>"
+          data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <div class="hidden-fields">
+                <input type="hidden" name="to_email" value="<?php echo __($toEmail);?>" />
+            </div>
+            <div class="field name required">
+                <label class="label" for="name"><span><?php echo __('Your Name') ?></span></label>
+                <div class="control">
+                    <input name="name" id="name" title="<?php echo __('Your Name') ?>"
+                           class="input-text" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field email">
+                <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+                <div class="control">
+                    <input name="email" id="email" title="<?php echo __('Email') ?>" class="input-text"
+                           type="email" data-validate="{required:false, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field telephone required">
+                <label class="label" for="telephone"><span><?php echo __('Phone Number') ?></span></label>
+                <div class="control">
+                    <input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>"
+                           class="input-text" type="text" data-validate="{required:true}" />
+                </div>
+            </div>
+            <div class="field product_name required">
+                <label class="label" for="product-name"><span><?php echo __('Product Name') ?></span></label>
+                <div class="control">
+                    <input name="product_name" id="product_name" title="<?php echo __('Product Name') ?>"
+                           class="input-text" type="text" data-validate="{required:true}" />
+                </div>
+            </div>
+            <div class="field comment required">
+                <label class="label" for="details"><span><?php echo __('Product Details') ?></span></label>
+                <div class="control">
+                <textarea name="details" id="details" title="<?php echo __('Product Details') ?>"
+                          class="input-text" cols="5" rows="3"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value="" />
+                <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary">
+                    <span><?php echo __('Submit') ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<?php endif; ?>

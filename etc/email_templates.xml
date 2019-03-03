@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="customer_inquiry_template" label="Product Inquiry" file="customer_confirm_email.html" type="html"
+    module="MageArab_ProductInquiry" area="frontend"/>
+    <template id="admin_inquiry_template" label="Product Inquiry" file="admin_inquiry_email.html" type="html"
+              module="MageArab_ProductInquiry" area="frontend"/>
+    <template id="customer_inquiry_fulfilment_template" label="Product Inquiry" file="customer_fulfilment_email.html" type="html"
+              module="MageArab_ProductInquiry" area="frontend"/>
+</config>
