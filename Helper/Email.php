@@ -8,7 +8,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
  */
 class Email extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    const XML_PATH_EMAIL_TEMPLATE_FIELD  = 'enquiry/general/email_template';
+    const XML_PATH_EMAIL_TEMPLATE_FIELD  = 'inquiry/general/email_template';
 
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
@@ -99,7 +99,6 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->getConfigValue($xmlPath, $this->getStore()->getStoreId());
     }
 
-
     public function getSalesEmail()
     {
         return $this->getConfigValue('trans_email/ident_sales/email', $this->getStore()->getStoreId());
@@ -112,13 +111,13 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * [generateTemplate description]  with template file and templates variables values
-     * @param  Mixed $emailTemplateVariables
+     * @param  Mixed $templateVariables
      * @param  Mixed $senderInfo
      * @param  Mixed $receiverInfo
      * @return Email
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function generateTemplate($emailTemplateVariables,$senderInfo,$receiverInfo)
+    public function generateTemplate($templateVariables, $senderInfo, $receiverInfo)
     {
         $this->_transportBuilder->setTemplateIdentifier($this->temp_id)
             ->setTemplateOptions(
@@ -127,31 +126,31 @@ class Email extends \Magento\Framework\App\Helper\AbstractHelper
                     'store' => $this->_storeManager->getStore()->getId(),
                 ]
             )
-            ->setTemplateVars($emailTemplateVariables)
+            ->setTemplateVars($templateVariables)
             ->setFrom($senderInfo)
-            ->addTo($receiverInfo['email'],$receiverInfo['name']);
+            ->addTo($receiverInfo['email'], $receiverInfo['name']);
         return $this;
     }
 
     /**
      * [sendMail description]
-     * @param  Mixed $emailTemplateVariables
+     * @param  Mixed $templateVariables
      * @param  Mixed $senderInfo
      * @param  Mixed $receiverInfo
      * @return void
      * @throws \Magento\Framework\Exception\MailException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function sendMail($emailTemplateVariables,$senderInfo,$receiverInfo, $template = null)
+    public function sendMail($templateVariables, $senderInfo, $receiverInfo, $template = null)
     {
         $this->temp_id = $this->getTemplateId(self::XML_PATH_EMAIL_TEMPLATE_FIELD);
-        if ($template != null)
+        if ($template != null) {
             $this->temp_id = $template;
+        }
         $this->inlineTranslation->suspend();
-        $this->generateTemplate($emailTemplateVariables,$senderInfo,$receiverInfo);
+        $this->generateTemplate($templateVariables, $senderInfo, $receiverInfo);
         $transport = $this->_transportBuilder->getTransport();
         $transport->sendMessage();
         $this->inlineTranslation->resume();
     }
-
 }

@@ -4,7 +4,6 @@ namespace MageArab\ProductInquiry\Block\Adminhtml\Inquiry\Edit\Tab;
 
 class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
-
     public $systemStore;
 
     public function __construct(
@@ -62,10 +61,11 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'textarea',
             ['name' => 'details', 'label' => __('Product Details'), 'title' => __('Product Details'), 'required' => true]
         );
-        
+
         $dateFormat = $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT);
         $fieldset->addField(
-            'published_at', 'date',
+            'published_at',
+            'date',
             [
             'name'     => 'published_at',
             'date_format' => $dateFormat,
@@ -76,7 +76,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'required' => true
             ]
         );
-        
+
         $this->_eventManager->dispatch('adminhtml_inquiry_edit_tab_main_prepare_form', ['form' => $form]);
 
         $form->setValues($model->getData());

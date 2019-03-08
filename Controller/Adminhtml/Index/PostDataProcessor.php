@@ -4,7 +4,6 @@ namespace MageArab\ProductInquiry\Controller\Adminhtml\Index;
 
 class PostDataProcessor
 {
-
     public $dateFilter;
 
     public $messageManager;

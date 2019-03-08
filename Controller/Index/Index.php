@@ -8,7 +8,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-
     public $resultPageFactory;
 
     public function __construct(

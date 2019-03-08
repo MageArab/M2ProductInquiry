@@ -4,7 +4,6 @@ namespace MageArab\ProductInquiry\Block\Adminhtml\Inquiry;
 
 class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
 {
-
     public $collectionFactory;
     public $inquiry;
 
@@ -59,7 +58,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'column_css_class' => 'col-date'
             ]
         );
-        
+
         $this->addColumn(
             'created_at',
             [
@@ -70,7 +69,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'column_css_class' => 'col-date'
             ]
         );
-        
+
         $this->addColumn(
             'action',
             [
@@ -101,7 +100,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     {
         return $this->getUrl('*/*/edit', ['inquiry_id' => $row->getId()]);
     }
-    
+
     public function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);

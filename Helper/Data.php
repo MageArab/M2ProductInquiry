@@ -4,7 +4,6 @@ namespace MageArab\ProductInquiry\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
-
     const XML_PATH_ITEMS_PER_PAGE     = 'inquiry/view/items_per_page';
 
     public function __construct(
@@ -14,7 +13,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_imageFactory = $imageFactory;
         parent::__construct($context);
     }
-
 
     public function getInquiryPerPage()
     {

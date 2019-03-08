@@ -6,7 +6,6 @@ use Magento\Backend\App\Action;
 
 class Save extends Action
 {
-
     public $dataProcessor;
 
     public function __construct(

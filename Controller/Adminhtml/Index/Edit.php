@@ -6,7 +6,6 @@ use Magento\Backend\App\Action;
 
 class Edit extends Action
 {
-
     public $coreRegistry = null;
 
     public $resultPageFactory;

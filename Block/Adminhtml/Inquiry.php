@@ -21,7 +21,7 @@ class Inquiry extends \Magento\Backend\Block\Widget\Grid\Container
         } else {
             $this->buttonList->remove('add');
         }
-        
+
         $this->buttonList->remove('add');
     }
 

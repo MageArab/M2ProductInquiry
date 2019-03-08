@@ -4,7 +4,6 @@ namespace MageArab\ProductInquiry\Block\Adminhtml\Inquiry;
 
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
-    
     public $coreRegistry = null;
 
     public function __construct(

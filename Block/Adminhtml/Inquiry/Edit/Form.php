@@ -4,7 +4,6 @@ namespace MageArab\ProductInquiry\Block\Adminhtml\Inquiry\Edit;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
-
     public function _prepareForm()
     {
         $form = $this->_formFactory->create(

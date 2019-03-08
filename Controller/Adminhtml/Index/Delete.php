@@ -6,7 +6,6 @@ use Magento\Backend\App\Action;
 
 class Delete extends Action
 {
-
     protected $resultPageFactory;
     protected $registry;
     protected $coreRegistry;

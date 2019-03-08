@@ -5,7 +5,6 @@ namespace MageArab\ProductInquiry\Block\Adminhtml\Inquiry\Edit\Tab;
 class Content extends \Magento\Backend\Block\Widget\Form\Generic implements
     \Magento\Backend\Block\Widget\Tab\TabInterface
 {
-
     public $wysiwygConfig;
 
     public function __construct(

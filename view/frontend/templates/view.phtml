@@ -1,48 +1,49 @@
-<?php if($block->isEnable()): ?>
+<?php if ($block->isEnable()) : ?>
 <?php
-$toEmail = $block->getConfig("enquiry/general/email_address");
+$toEmail = $block->getConfig("inquiry/general/email_address");
 ?>
 <div class="missing-product">
-    <form class="form enquiry" action="<?php echo $block->escapeHtml($block->getFormAction()); ?>"
-          id="enquiry-form" method="post"
+    <form class="form inquiry" action="<?php echo $block->escapeUrl($block->getFormAction()); ?>"
+          id="inquiry-form" method="post"
           data-hasrequired="<?php echo __('* Required Fields') ?>"
           data-mage-init='{"validation":{}}'>
         <fieldset class="fieldset">
             <div class="hidden-fields">
+                <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
                 <input type="hidden" name="to_email" value="<?php echo __($toEmail);?>" />
             </div>
             <div class="field name required">
-                <label class="label" for="name"><span><?php echo __('Your Name') ?></span></label>
+                <label class="label" for="name"><span><?php echo $block->escapeHtml(__('Your Name')) ?></span></label>
                 <div class="control">
-                    <input name="name" id="name" title="<?php echo __('Your Name') ?>"
+                    <input name="name" id="name" title="<?php echo $block->escapeHtml(__('Your Name')) ?>"
                            class="input-text" type="text" data-validate="{required:true}"/>
                 </div>
             </div>
             <div class="field email">
-                <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+                <label class="label" for="email"><span><?php echo $block->escapeHtml(__('Email')) ?></span></label>
                 <div class="control">
-                    <input name="email" id="email" title="<?php echo __('Email') ?>" class="input-text"
+                    <input name="email" id="email" title="<?php echo $block->escapeHtml(__('Email')) ?>" class="input-text"
                            type="email" data-validate="{required:false, 'validate-email':true}"/>
                 </div>
             </div>
             <div class="field telephone required">
-                <label class="label" for="telephone"><span><?php echo __('Phone Number') ?></span></label>
+                <label class="label" for="telephone"><span><?php echo $block->escapeHtml(__('Phone Number')) ?></span></label>
                 <div class="control">
-                    <input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>"
+                    <input name="telephone" id="telephone" title="<?php echo $block->escapeHtml(__('Phone Number')) ?>"
                            class="input-text" type="text" data-validate="{required:true}" />
                 </div>
             </div>
             <div class="field product_name required">
-                <label class="label" for="product-name"><span><?php echo __('Product Name') ?></span></label>
+                <label class="label" for="product-name"><span><?php echo $block->escapeHtml(__('Product Name')) ?></span></label>
                 <div class="control">
-                    <input name="product_name" id="product_name" title="<?php echo __('Product Name') ?>"
+                    <input name="product_name" id="product_name" title="<?php echo $block->escapeHtml(__('Product Name')) ?>"
                            class="input-text" type="text" data-validate="{required:true}" />
                 </div>
             </div>
-            <div class="field comment required">
+            <div class="field comment">
                 <label class="label" for="details"><span><?php echo __('Product Details') ?></span></label>
                 <div class="control">
-                <textarea name="details" id="details" title="<?php echo __('Product Details') ?>"
+                <textarea name="details" id="details" title="<?php echo $block->escapeHtml(__('Product Details')) ?>"
                           class="input-text" cols="5" rows="3"></textarea>
                 </div>
             </div>
@@ -50,8 +51,8 @@ $toEmail = $block->getConfig("enquiry/general/email_address");
         <div class="actions-toolbar">
             <div class="primary">
                 <input type="hidden" name="hideit" id="hideit" value="" />
-                <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary">
-                    <span><?php echo __('Submit') ?></span>
+                <button type="submit" title="<?php echo $block->escapeHtml(__('Submit')) ?>" class="action submit primary">
+                    <span><?php echo $block->escapeHtml(__('Submit')) ?></span>
                 </button>
             </div>
         </div>

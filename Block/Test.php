@@ -26,7 +26,7 @@ class Test extends \Magento\Framework\View\Element\Template
     }
     public function isEnable()
     {
-        return $this->getConfig('enquiry/general/enable');
+        return $this->getConfig('inquiry/general/enable');
     }
 
     public function getConfig($config)
